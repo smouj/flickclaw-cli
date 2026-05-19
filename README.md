@@ -8,7 +8,6 @@ FlickClaw is an AI Agent Launcher — install pre-configured AI agents into your
 npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor
 ```
 
-> **Note:** The `@flickclaw/cli` npm package is not yet published. Commands shown are the intended interface. Export via the [web dashboard](https://flickclaw.com/dashboard) is available now.
 
 ## Install
 
