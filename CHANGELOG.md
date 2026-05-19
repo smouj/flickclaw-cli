@@ -1,5 +1,23 @@
 # FlickClaw Changelog
 
+## v0.6.20 — npm CLI Package Published (2026-05-19)
+
+### @flickclaw/cli published to npm
+
+- Published `@flickclaw/cli@0.6.20` on npm with public access
+- One-command workflow: `npm exec --yes @flickclaw/cli@latest -- doctor`
+- Zero runtime dependencies, 7.4 kB package size
+- npm provenance attestations (Sigstore)
+- No postinstall/preinstall scripts
+- No Pro content embedded — agents fetched from authenticated API
+- Path traversal protection on all install paths
+- Server-side Free/Pro access control
+- 8 supported targets: Claude Code, OpenClaw, Codex, Cursor, Windsurf, Aider, Ollama, Hermes
+- 128 agent-target combinations, all verified PASS
+
+## v0.6.14 — Standalone CLI Policy + Ollama Adapter (2026-05-19)
+
+### CLI Distribution Policy
 ## v0.6.14 — Standalone CLI Policy + Ollama Adapter (2026-05-19)
 
 ### CLI Distribution Policy
