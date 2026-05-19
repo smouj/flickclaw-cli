@@ -1,18 +1,34 @@
 # FlickClaw CLI
 
-**Standalone binary. No npm. No `curl | bash`. Verify before running.**
+**One-command npm package. No global install required. Published with npm provenance.**
 
-FlickClaw is an AI Agent Launcher — install specialized AI agents into your coding tools with one command.
+FlickClaw is an AI Agent Launcher — install pre-configured AI agents into your coding tools with one command.
 
 ```bash
-flickclaw install product-claw --target cursor
+npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor
 ```
 
-## Download
+> **Note:** The `@flickclaw/cli` npm package is not yet published. Commands shown are the intended interface. Export via the [web dashboard](https://flickclaw.com/dashboard) is available now.
 
-→ [flickclaw.com/download](https://flickclaw.com/download)
+## Install
 
-Available for Windows, macOS (Intel + Apple Silicon), and Linux (x64 + ARM64). Standalone binaries with SHA-256 checksums.
+```bash
+# Primary (no global install required)
+npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor
+
+# Short alternative
+npx @flickclaw/cli@latest install product-claw --target cursor
+
+# Optional global install
+npm install -g @flickclaw/cli
+flickclaw install product-claw --target cursor
+
+# Preview without writing files
+npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor --dry-run
+
+# Verify your setup
+npm exec --yes @flickclaw/cli@latest -- doctor
+```
 
 ## Supported Targets
 
@@ -25,58 +41,46 @@ Available for Windows, macOS (Intel + Apple Silicon), and Linux (x64 + ARM64). S
 | Windsurf | Project | `.windsurf/rules/flickclaw-<slug>.md` |
 | Aider | Project | `.flickclaw/agents/<slug>/aider.md` |
 | Ollama | Project | `.flickclaw/ollama/<slug>/Modelfile` |
-
-## Quick Start
-
-```bash
-# Login (get your token at flickclaw.com/dashboard)
-flickclaw login --token <your-token>
-
-# Install an agent
-flickclaw install product-claw --target claude-code
-
-# Install for all tools at once
-flickclaw install product-claw --target all
-
-# Preview without writing files
-flickclaw install product-claw --target cursor --dry-run
-
-# Verify your setup
-flickclaw doctor
-```
+| Hermes | Workspace / Global | `hermes.json` |
+| All | Bundle | Complete ZIP with all formats |
 
 ## Security
 
-- **No npm, no `npx`, no `curl | bash`** — standalone binary distribution only
-- **No Pro content in binary** — all agent packages come from authenticated API
+- **npm provenance** — published with Sigstore attestations
+- **No global install required** — `npm exec` runs without permanent setup
+- **No `postinstall` or `preinstall` scripts** — zero runtime side effects
+- **No Pro content in package** — all agent packages come from authenticated API
+- **No secrets in package** — tokens stored securely, never in npm cache
 - **Path traversal protection** — all install paths validated
-- **No script execution** — CLI only writes text files
-- **No model downloads** — Ollama adapter creates Modelfile, never runs `ollama create` automatically
-- **SHA-256 checksums** — verify before running
-- **Config mode 0600** — tokens stored securely
+- **Minimal dependencies** — zero runtime dependencies
 
 See [AGENT_INSTALL_SECURITY.md](./AGENT_INSTALL_SECURITY.md) for full security model.
+
+## Verify
+
+```bash
+# Check package metadata
+npm view @flickclaw/cli version
+
+# Verify provenance (after npm publish)
+npm view @flickclaw/cli dist.integrity
+
+# Run health check
+npm exec --yes @flickclaw/cli@latest -- doctor
+```
 
 ## Documentation
 
 | Document | Description |
 |----------|-------------|
 | [CLI_INSTALLER.md](./CLI_INSTALLER.md) | CLI commands, options, target formats |
-| [IDE_INSTALL_COMPATIBILITY.md](./IDE_INSTALL_COMPATIBILITY.md) | All 7 target adapters detailed |
+| [IDE_INSTALL_COMPATIBILITY.md](./IDE_INSTALL_COMPATIBILITY.md) | All 8 target adapters detailed |
 | [AGENT_INSTALL_SECURITY.md](./AGENT_INSTALL_SECURITY.md) | Threat model, path safety, credential security |
-| [CLI_MIGRATION_PLAN.md](./CLI_MIGRATION_PLAN.md) | TypeScript → Go binary migration roadmap |
 | [CHANGELOG.md](./CHANGELOG.md) | Version history |
 | [ROADMAP.md](./ROADMAP.md) | Product roadmap |
 | [PRODUCT_SPEC.md](./PRODUCT_SPEC.md) | Product specification |
 | [BUSINESS_MODEL.md](./BUSINESS_MODEL.md) | Business model (Free / Pro) |
-| [MVP_SCOPE.md](./MVP_SCOPE.md) | MVP scope definition |
-| [AD_MONETIZATION.md](./AD_MONETIZATION.md) | Ad monetization model |
-| [LAUNCH_CHECKLIST.md](./LAUNCH_CHECKLIST.md) | Launch checklist |
 
 ## License
 
 MIT — see [LICENSE](./LICENSE)
-
----
-
-*This repository contains public documentation, changelogs, and security policies for FlickClaw. The source code is in a private repository.*
