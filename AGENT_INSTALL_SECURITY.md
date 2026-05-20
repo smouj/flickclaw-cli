@@ -1,5 +1,7 @@
 Agent Install Security
 
+- Published on npm. Provenance for v0.6.23 is pending CI workflow repair.
+
 - path traversal blocked
 - absolute paths blocked
 - null byte paths blocked
@@ -10,3 +12,4 @@ Agent Install Security
 - token output redacted
 - ollama create not run by default
 - aider config not modified unless --apply-config
+- global scope is experimental (prefer project/workspace)
