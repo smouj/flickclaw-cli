@@ -1,7 +1,7 @@
 IDE Install Compatibility
 
 Supported targets:
-- openclaw
+- openclaw (default)
 - claude-code
 - codex
 - cursor
@@ -10,5 +10,11 @@ Supported targets:
 - ollama
 - hermes
 
-Default target:
-- openclaw
+Hermes primary package:
+- hermes/skills/flickclaw/<slug>/SKILL.md
+- references/
+- templates/
+- verification.md
+
+Legacy fallback:
+- hermes.json may appear only for legacy compatibility.

@@ -1,6 +1,8 @@
 # @flickclaw/cli
 
-**One-command npm package. No global install required. Published with npm provenance.**
+**One-command npm package. No global install required. Published on npm.**
+
+Provenance for v0.6.23 is pending CI workflow repair and will be restored in a future release.
 
 FlickClaw is an AI Agent Launcher — install pre-configured AI agents into your coding tools with one command.
 
@@ -43,18 +45,18 @@ flickclaw install product-claw
 | Target | Scope | File Format |
 |--------|-------|-------------|
 | Claude Code | Project / Global | `.claude/skills/<slug>/SKILL.md` |
-| OpenClaw | Workspace / Global | `skills/<slug>/SKILL.md` |
+| OpenClaw | Workspace / Global | `skills/<slug>/... + .openclaw/agents/<slug>/...` |
 | Codex | Project / Global | `AGENTS.md` + `.flickclaw/agents/` |
 | Cursor | Project | `.cursor/rules/flickclaw-<slug>.mdc` |
 | Windsurf | Project | `.windsurf/rules/flickclaw-<slug>.md` |
 | Aider | Project | `.flickclaw/agents/<slug>/aider.md` |
 | Ollama | Project | `.flickclaw/ollama/<slug>/Modelfile` |
-| Hermes | Workspace / Global | `hermes.json` |
+| Hermes | Workspace / Global | `hermes/skills/flickclaw/<slug>/SKILL.md` (+ references/templates) |
 | All | Bundle | Complete ZIP with all formats |
 
 ## Security
 
-- **npm provenance** — published with Sigstore attestations
+- **npm provenance** — pending CI workflow fix for next release
 - **No global install required** — `npm exec` runs without permanent setup
 - **No `postinstall` or `preinstall` scripts** — zero runtime side effects
 - **No Pro content in package** — all agent packages come from authenticated API
@@ -63,6 +65,7 @@ flickclaw install product-claw
 - **Minimal dependencies** — zero runtime dependencies
 - **Token redaction** — credentials never printed in error messages
 - **No model downloads** — Ollama adapter creates Modelfile, never runs `ollama create`
+- **Global scope warning** — global installs are supported but considered experimental
 
 ## License
 
