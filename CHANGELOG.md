@@ -1,3 +1,17 @@
+## v0.6.22 — Version Sync (2026-05-20)
+
+### Version
+- CLI version aligned with web app: v0.6.22
+- `npx @flickclaw/cli@latest -- version` now returns `v0.6.22`
+- Web app and CLI share the same version number for consistency
+
+### No functional changes
+- Same commands, same targets, same behavior as v0.6.20
+- 8 targets: claude-code, openclaw, codex, cursor, windsurf, aider, ollama, hermes
+- `--target all` installs for all supported tools
+
+---
+
 # FlickClaw Changelog
 
 ## v0.6.20 — npm CLI Package Published (2026-05-19)
