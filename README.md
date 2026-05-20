@@ -1,88 +1,76 @@
-# FlickClaw CLI
+# @flickclaw/cli
 
-> AI Agent Launcher — install preconfigured AI agents into your coding tools with one command.
+**One-command npm package. No global install required. Published with npm provenance.**
 
-[![npm version](https://img.shields.io/npm/v/@flickclaw/cli.svg)](https://www.npmjs.com/package/@flickclaw/cli) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+FlickClaw is an AI Agent Launcher — install pre-configured AI agents into your coding tools with one command.
+
+Default target: openclaw. If no --target is provided, install uses openclaw.
 
 ```bash
-npx @flickclaw/cli@latest doctor
-npx @flickclaw/cli@latest install product-claw --target cursor
+npm exec --yes @flickclaw/cli@latest -- install product-claw
 ```
 
 ## Install
 
-No global install needed. Run directly with `npx` or `npm exec`:
-
 ```bash
-# Check your setup
-npx @flickclaw/cli@latest doctor
+# Primary (no global install required)
+npm exec --yes @flickclaw/cli@latest -- install product-claw
 
-# Install an agent for a specific tool
-npx @flickclaw/cli@latest install product-claw --target claude-code
+# Short alternative
+npx @flickclaw/cli@latest install product-claw
 
-# Install for all supported tools at once
-npx @flickclaw/cli@latest install product-claw --target all
-
-# Preview without writing files
-npx @flickclaw/cli@latest install product-claw --target cursor --dry-run
+# Optional global install
+npm install -g @flickclaw/cli
+flickclaw install product-claw
 ```
-
-## Authentication
-
-Get your token at [flickclaw.com/dashboard](https://flickclaw.com/dashboard):
-
-```bash
-npx @flickclaw/cli@latest login --token <your-token>
-```
-
-## Supported Targets
-
-| Target | Flag | Scope | File Format |
-|--------|------|-------|-------------|
-| Claude Code | `--target claude-code` | Project / Global | `.claude/skills/<slug>/SKILL.md` |
-| OpenClaw | `--target openclaw` | Workspace / Global | `skills/<slug>/SKILL.md` |
-| Codex | `--target codex` | Project / Global | `AGENTS.md` + `.flickclaw/agents/` |
-| Cursor | `--target cursor` | Project | `.cursor/rules/flickclaw-<slug>.mdc` |
-| Windsurf | `--target windsurf` | Project | `.windsurf/rules/flickclaw-<slug>.md` |
-| Aider | `--target aider` | Project | `.flickclaw/agents/<slug>/aider.md` |
-| Ollama | `--target ollama` | Project | `.flickclaw/ollama/<slug>/Modelfile` |
-| Hermes | `--target hermes` | Project | `.flickclaw/hermes/<slug>/config.yaml` |
-
-**`--target all`** installs the agent for all supported tools at once.
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `doctor` | Check your setup and connectivity |
-| `login --token <token>` | Authenticate with FlickClaw |
-| `logout` | Remove stored credentials |
-| `whoami` | Show current user |
-| `list` | List available agents |
-| `install <slug> --target <tool>` | Install an agent |
-| `uninstall <slug> --target <tool>` | Uninstall an agent |
-| `version` | Show CLI version |
-| `update` | Update to latest version |
+| `flickclaw login --token <t>` | Authenticate with FlickClaw |
+| `flickclaw logout` | Remove stored credentials |
+| `flickclaw whoami` | Verify authentication |
+| `flickclaw list` | List available agents |
+| `flickclaw install <slug>` | Install an agent into your tool |
+| `flickclaw uninstall <slug>` | Remove an installed agent |
+| `flickclaw update --all` | Update all installed agents |
+| `flickclaw doctor` | Check installation health |
+| `flickclaw version` | Show CLI version |
+
+## Supported Targets
+
+| Target | Scope | File Format |
+|--------|-------|-------------|
+| Claude Code | Project / Global | `.claude/skills/<slug>/SKILL.md` |
+| OpenClaw | Workspace / Global | `skills/<slug>/SKILL.md` |
+| Codex | Project / Global | `AGENTS.md` + `.flickclaw/agents/` |
+| Cursor | Project | `.cursor/rules/flickclaw-<slug>.mdc` |
+| Windsurf | Project | `.windsurf/rules/flickclaw-<slug>.md` |
+| Aider | Project | `.flickclaw/agents/<slug>/aider.md` |
+| Ollama | Project | `.flickclaw/ollama/<slug>/Modelfile` |
+| Hermes | Workspace / Global | `hermes.json` |
+| All | Bundle | Complete ZIP with all formats |
 
 ## Security
 
-- **npm distribution** — verified package, no arbitrary script execution
-- **No Pro content bundled** — all agent packages fetched from authenticated API
+- **npm provenance** — published with Sigstore attestations
+- **No global install required** — `npm exec` runs without permanent setup
+- **No `postinstall` or `preinstall` scripts** — zero runtime side effects
+- **No Pro content in package** — all agent packages come from authenticated API
+- **No secrets in package** — tokens stored securely, never in npm cache
 - **Path traversal protection** — all install paths validated
-- **No script execution** — CLI only writes text files
+- **Minimal dependencies** — zero runtime dependencies
+- **Token redaction** — credentials never printed in error messages
 - **No model downloads** — Ollama adapter creates Modelfile, never runs `ollama create`
-- **Config mode 0600** — tokens stored securely
-- **Dry-run mode** — `--dry-run` previews without writing files
-
-See [AGENT_INSTALL_SECURITY.md](./AGENT_INSTALL_SECURITY.md) for the full security model.
-
-## Plans
-
-- **Free**: 6 agents with ads, basic export formats
-- **Pro** (€9.95/month): All 16 agents, no ads, advanced workflows, priority updates
-
-→ [flickclaw.com/pricing](https://flickclaw.com/pricing)
 
 ## License
 
-MIT — see [LICENSE](./LICENSE)
+MIT
+
+## Default target behavior
+
+- Default target is openclaw
+- install <slug> equals install <slug> --target openclaw
+- Cursor remains supported as secondary target:
+  - npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor
