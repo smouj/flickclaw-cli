@@ -278,7 +278,9 @@ async function cmdTargets() {
   const slug = args[1]
   if (!slug) throw new Error('Usage: flickclaw targets <slug>')
 
-  const data = await apiGet('/api/agents/' + slug + '/targets').catch(() => null)
+  const data = await apiGet('/api/agents/slug/' + slug + '/targets')
+    .catch(() => apiGet('/api/agents/' + slug + '/targets'))
+    .catch(() => null)
   if (!data || data.error) {
     // Fallback: show static target list
     console.log(`Targets for ${slug}:`)
