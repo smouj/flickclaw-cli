@@ -1,5 +1,15 @@
 # FlickClaw CLI Changelog
 
+## v0.6.27.0 (2026-05-21)
+
+### Stability and Sync
+- Synced release with web v0.6.27 public SEO/GEO rollout.
+- Added canonical API fallback for target listing route:
+  - primary: /api/agents/slug/:slug/targets
+  - fallback: /api/agents/:slug/targets
+- Kept v2 Target Registry install flow and merge-strategy behavior unchanged.
+- Release alignment for multi-repo tagging and deployment traceability.
+
 ## v0.6.26.0 (2026-05-21)
 
 ### Target Registry Integration
