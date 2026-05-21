@@ -1,0 +1,45 @@
+{
+  "name": "@flickclaw/cli",
+  "version": "0.6.26",
+  "description": "FlickClaw Agent Launcher — install AI agents into Claude Code, Codex, Cursor, Windsurf, Aider, Ollama, Hermes and more",
+  "type": "module",
+  "bin": {
+    "flickclaw": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "flickclaw",
+    "ai-agents",
+    "claude-code",
+    "codex",
+    "cursor",
+    "windsurf",
+    "aider",
+    "ollama",
+    "hermes",
+    "agent-launcher",
+    "openclaw",
+    "installer"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smouj/flickclaw-cli.git"
+  },
+  "homepage": "https://flickclaw.com",
+  "bugs": {
+    "url": "https://github.com/smouj/flickclaw-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {}
+}
