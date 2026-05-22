@@ -1,5 +1,17 @@
 # FlickClaw CLI Changelog
 
+## v0.6.36 (2026-05-22)
+
+### Sync & Release
+- Synced with FlickClaw main app v0.6.36 release
+- Updated internal VERSION constant to 0.6.36
+- Published to npm as @flickclaw/cli@0.6.36
+
+### Compatibility
+- Full compatibility with FlickClaw API v0.6.36
+- All 8 targets supported: openclaw, claude-code, codex, cursor, windsurf, aider, ollama, hermes
+- 102 agents available with complete 8-framework file sets
+
 ## v0.6.27.0 (2026-05-21)
 
 ### Stability and Sync
