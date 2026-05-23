@@ -16,7 +16,7 @@
 
 ---
 
-FlickClaw CLI installs pre-configured AI agents into your coding tools. Browse 102 professional agents at [flickclaw.com](https://flickclaw.com), pick one, and install it into any of 8 supported frameworks — no global install required.
+FlickClaw CLI installs pre-configured AI agents into your coding tools. Browse 150 professional agents at [flickclaw.com](https://flickclaw.com), pick one, authenticate with your FlickClaw token, and install it into any of 8 supported frameworks — no global install required.
 
 ```bash
 npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor
@@ -30,10 +30,10 @@ npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor
 # Check your setup (no install needed)
 npm exec --yes @flickclaw/cli@latest -- doctor
 
-# List available agents
+# List available agents (requires login/token)
 npm exec --yes @flickclaw/cli@latest -- list
 
-# Install an agent into your framework
+# Install an agent into your framework (requires login/token)
 npm exec --yes @flickclaw/cli@latest -- install <slug> --target <target>
 
 # Optional: global install for shorter commands
@@ -98,7 +98,7 @@ npm exec --yes @flickclaw/cli@latest -- install audit-claw --target all
 
 ## Authentication
 
-Free agents work without authentication. Pro agents require a FlickClaw account.
+The CLI requires authentication for catalog and package access. Free agents do not require payment, but they still require a FlickClaw account/token so activation and downloads are tracked consistently. Pro agents require an account with Pro access.
 
 ```bash
 # Login with your FlickClaw token

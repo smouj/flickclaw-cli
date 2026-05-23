@@ -1,5 +1,15 @@
 # FlickClaw CLI Changelog
 
+## v0.6.37 (2026-05-24)
+
+### Packaging Fix
+- Fixed npm executable packaging by shipping the CLI entrypoint with executable permissions.
+- Updated internal VERSION constant to 0.6.37.
+
+### Auth Contract
+- Clarified CLI authentication policy: catalog/package access requires a FlickClaw token, including free agents.
+- Updated README agent count to 150 to match current FlickClaw production catalog.
+
 ## v0.6.36 (2026-05-22)
 
 ### Sync & Release
