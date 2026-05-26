@@ -108,7 +108,16 @@ flickclaw login --token <your-token>
 export FLICKCLAW_TOKEN=<your-token>
 ```
 
-Get your token at [flickclaw.com/dashboard/settings](https://flickclaw.com/dashboard/settings).
+Get your token at [flickclaw.com/dashboard/tokens](https://flickclaw.com/dashboard/tokens). Tokens use the `fctk_` format and are shown only once when created.
+
+### Rate Limits
+
+| Plan | Rate Limit |
+|------|-----------|
+| Free | 30 requests/minute |
+| Pro | 120 requests/minute (4x more) |
+
+Upgrade at [flickclaw.com/pricing](https://flickclaw.com/pricing).
 
 ---
 

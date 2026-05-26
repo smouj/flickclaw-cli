@@ -1,5 +1,18 @@
 # FlickClaw CLI Changelog
 
+## v0.6.41 (2026-05-26)
+
+### Per-User Token System
+- Support for `fctk_` token format with prefix validation in `login` command
+- Token help now points to `/dashboard/tokens` (was `/dashboard`)
+- Rate limit info shown in login help (Free: 30/min, Pro: 120/min)
+- Version sync with main FlickClaw app v0.6.41
+
+## v0.6.38 (2026-05-25)
+
+### Version Sync
+- Version bump to 0.6.38 to match main FlickClaw app.
+
 ## v0.6.37 (2026-05-24)
 
 ### Packaging Fix

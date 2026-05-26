@@ -5,7 +5,7 @@ import path from 'path'
 import crypto from 'crypto'
 
 const API_BASE = process.env.FLICKCLAW_API_BASE || 'https://flickclaw.com'
-const VERSION = '0.6.38'
+const VERSION = '0.6.41'
 const DEFAULT_TARGET = 'openclaw'
 const SCHEMA_V2 = 'flickclaw-agent-package/v2'
 const SCHEMA_V1 = 'flickclaw-agent-package/v1'
@@ -253,7 +253,15 @@ function installFiles(slug, files, target, opts) {
 
 async function cmdLogin() {
   const token = parseOpt('token')
-  if (!token) throw new Error('Usage: flickclaw login --token <token>\n\nGet your token at: ' + API_BASE + '/dashboard')
+  if (!token) throw new Error(
+    'Usage: flickclaw login --token <token>\n\n' +
+    'Get your token from: ' + API_BASE + '/dashboard/tokens\n' +
+    'Free accounts: 30 req/min · Pro accounts: 120 req/min'
+  )
+  if (!token.startsWith('fctk_')) throw new Error(
+    'Invalid token format. Tokens must start with "fctk_".\n' +
+    'Get a valid token from: ' + API_BASE + '/dashboard/tokens'
+  )
   writeConfig({ ...readConfig(), token })
   try { await apiGet('/api/cli/agents'); console.log('✓ authenticated') }
   catch { console.log('⚠ token saved (could not verify — check connection)') }
@@ -447,7 +455,7 @@ async function main() {
 Usage: flickclaw <command> [options]
 
 Commands:
-  login              Authenticate with FlickClaw
+  login              Authenticate (get token at flickclaw.com/dashboard/tokens)
   logout             Remove stored credentials
   whoami             Verify authentication
   list               List available agents
