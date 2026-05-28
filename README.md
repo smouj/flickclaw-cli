@@ -16,7 +16,7 @@
 
 ---
 
-FlickClaw CLI installs pre-configured AI agents into your coding tools. Browse 150 professional agents at [flickclaw.com](https://flickclaw.com), pick one, authenticate with your FlickClaw token, and install it into any of 8 supported frameworks — no global install required.
+FlickClaw CLI installs pre-configured AI agents into your coding tools. Browse 159 professional agents at [flickclaw.com](https://flickclaw.com), pick one, authenticate with your FlickClaw token, and install it into any of 8 supported frameworks — no global install required.
 
 ```bash
 npm exec --yes @flickclaw/cli@latest -- install product-claw --target cursor

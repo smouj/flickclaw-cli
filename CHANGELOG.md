@@ -1,5 +1,11 @@
 # FlickClaw CLI Changelog
 
+## v0.6.50 (2026-05-29)
+
+### Version Sync
+- Version bump to 0.6.50 to match FlickClaw main app (Admin Panel 2.0 release)
+- Updated README agent count: 150 → 159 agents, matching current production catalog
+
 ## v0.6.41 (2026-05-26)
 
 ### Per-User Token System

@@ -1,6 +1,6 @@
 {
   "name": "@flickclaw/cli",
-  "version": "0.6.41",
+  "version": "0.6.50",
   "description": "FlickClaw Agent Launcher — install AI agents into Claude Code, Codex, Cursor, Windsurf, Aider, Ollama, Hermes and more",
   "type": "module",
   "bin": {

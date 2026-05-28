@@ -5,7 +5,7 @@ import path from 'path'
 import crypto from 'crypto'
 
 const API_BASE = process.env.FLICKCLAW_API_BASE || 'https://flickclaw.com'
-const VERSION = '0.6.41'
+const VERSION = '0.6.50'
 const DEFAULT_TARGET = 'openclaw'
 const SCHEMA_V2 = 'flickclaw-agent-package/v2'
 const SCHEMA_V1 = 'flickclaw-agent-package/v1'
